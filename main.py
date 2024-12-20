@@ -1,13 +1,13 @@
 import streamlit as st 
 import pandas as pd 
 
-st.title("Sistem Rekomendasi Berita")
 
-article_df = pd.read_excel("article.xlsx")
-st.dataframe(article_df)
+novell_df = pd.read_csv("novel.csv")
+#st.dataframe(novell_df)
+
 
 #st.dataframe(novell_df.isnull().sum())
-article_df = article_df[article_df['content'].notnull()]
+novell_df = novell_df[novell_df['title'].notnull()]
 
 from sklearn.metrics.pairwise import cosine_similarity
 from sklearn.feature_extraction.text import TfidfVectorizer
